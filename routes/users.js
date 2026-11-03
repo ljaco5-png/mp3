@@ -113,7 +113,7 @@ module.exports = function () {
 
         await Task.updateMany({ assignedUser: id }, { $set: { assignedUser: '', assignedUserName: 'unassigned' } });
         await User.deleteOne({ _id: id });
-        return h.send(res, 200, 'User deleted', user);
+        return res.status(204).end();
     }));
 
     return router;
